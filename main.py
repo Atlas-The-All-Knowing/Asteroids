@@ -15,6 +15,10 @@ def main():
     # Initialises pygame
     pygame.init()
 
+    # Locks the game to 60 FPS
+    clock = pygame.time.Clock()
+    dt = 0.0
+
     # Sets the pygame.display size from the screen width and height constants
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -31,6 +35,9 @@ def main():
         # Sets the screen to solid black, then updates it
         screen.fill("black")
         pygame.display.flip()
+
+        # Figures the delta time since last called
+        dt = clock.tick(60) / 1000
 
 
 if __name__ == "__main__":
