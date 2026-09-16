@@ -53,6 +53,13 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+            # Iterates through all objects in the asteroids group checking if any shots collide with them
+            for shot in shots:
+                if shot.collides_with(asteroid):
+                    log_event("asteroid_shot")
+                    shot.kill()
+                    asteroid.kill()
+
         # Sets the screen to solid black
         screen.fill("black")
 
